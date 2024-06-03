@@ -1,0 +1,222 @@
+body {
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  font-family: var(--ff-barlow), sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-grayish-blue);
+  color: var(--white);
+}
+
+:root {
+  --violet: hsl(263, 55%, 52%);
+  --light-violet: hsl(264, 82%, 70%);
+  --dark-grayish-blue: hsl(217, 19%, 35%);
+  --dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+  --ff-barlow: 'Barlow';
+}
+
+.container {
+  margin-block: 4rem;
+  inline-size: clamp(20.4375rem, 87.2vw, 69.375rem);
+  display: grid;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.testimony {
+  max-inline-size: 23rem;
+  padding: 1.5rem 1.9rem 1.85rem;
+  border-radius: .5rem;
+  box-shadow: 40px 60px 50px -40px hsl(217, 19%, 35%, .25);
+}
+
+.testimony__header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: .92rem;
+}
+
+.testimony__username-pic {
+  grid-row: span 2;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.testimony__username {
+  margin-top: .2rem;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.testimony__verify {
+  font-size: 11px;
+  opacity: .5;
+}
+
+.testimony__body {
+  padding: 0 .1rem;
+}
+.testimony__title {
+  margin-top: 1.15rem;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: .03px;
+  line-height: 1.2;
+}
+
+.testimony__description {
+  margin-top: 1rem;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .03px;
+  line-height: 1.39;
+  opacity: .7;
+}
+
+
+.p-right {
+  padding-right: .9rem;
+}
+.bd-l-violet {
+  border-color: var(--light-violet);
+}
+.bd-violet {
+  border-color: var(--violet);
+}
+
+.attribution {
+  margin-top: -3rem;
+  padding-block: 1rem;
+  font-weight: 500;
+  color: var(--dark-blackish-blue);
+}
+.attribution__cta {
+  margin-inline: .15rem;
+  font-weight: 600;
+  text-decoration-thickness: .15rem;
+  text-underline-offset: .12rem;
+  color: inherit;
+}
+
+.testimony:first-child {
+  background-color: var(--violet);
+  position: relative;
+  z-index: 10;
+}
+
+
+.testimony:first-child::after {
+  content: url('../assets/image/bg-pattern-quotation.svg');
+  position: absolute;
+  top: 0;
+  right: 7.4%;
+  z-index: -10;
+}
+
+.testimony:nth-child(2) {
+  background-color: var(--dark-grayish-blue);
+}
+
+.testimony:nth-child(3),
+.testimony:last-child {
+  background-color: var(--white);
+  color: var(--dark-grayish-blue);
+}
+
+.testimony:nth-child(4) {
+  background-color: var(--dark-blackish-blue);
+}
+
+@media (width >= 768px) {
+  .container {
+    max-inline-size: 42rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimony {
+    max-inline-size: unset;
+  }
+  .testimony:nth-child(4) {
+    grid-column: 2/-1;
+    grid-row: 1/2;
+  }
+  .testimony:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (width >= 1024px) {
+  .container {
+    margin-block: 3rem;
+    max-inline-size: unset;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .testimony:nth-child(4) {
+    grid-column: 2/3;
+  }
+  .testimony:last-child {
+    grid-column: 3/-1;
+    grid-row: 1/3;
+  }
+
+}
+@media (width >= 1366px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.9rem;
+  }
+  .testimony {
+    padding-bottom: 1.8rem;
+  }
+  .m-top {
+    margin-top: 1.45rem;
+  }
+  .p-right {
+    padding-right: unset;
+  }
+  .testimony:first-child::after {
+    right: 14.8%;
+  }
+  .testimony:first-child {
+    grid-column: span 2;
+  }
+  .testimony:nth-child(4) {
+    grid-column: 2/4;
+    grid-row: 2/3;
+  }
+  .testimony:last-child {
+    grid-column: 4/-1;
+  }
+  .testimony:last-child,
+  .testimony:nth-child(4),
+  .testimony:nth-child(3) {
+    padding-bottom: 1.45rem;
+  }
+}
+@media (width >= 1440px) {
+  .container {
+    margin-block: 5rem;
+  }
+}
+
+.attribution__cta:focus-visible {
+  outline: .15rem dotted currentColor;
+  outline-offset: .13rem;
+  text-decoration: none;
+  color: var(--violet);
+}
+
+@media (hover:hover) {
+  .attribution__cta:hover {
+    color: var(--violet);
+  }
+}

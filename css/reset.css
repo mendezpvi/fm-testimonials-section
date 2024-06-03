@@ -1,0 +1,16 @@
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body, h1, h2, p {
+  margin: 0;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+  font-style: italic;
+  vertical-align: middle;
+}
